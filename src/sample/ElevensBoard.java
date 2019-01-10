@@ -32,12 +32,6 @@ public class ElevensBoard extends Board {
             {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 0, 0};
 
     /**
-     * Flag used to control debugging print statements.
-     */
-    private static final boolean I_AM_DEBUGGING = false;
-
-
-    /**
      * Creates a new <code>ElevensBoard</code> instance.
      */
     public ElevensBoard() {
@@ -83,14 +77,9 @@ public class ElevensBoard extends Board {
         int sum = 0;
         if(selectedCards.size() == 2)
         {
-            for(int i = 0; i < selectedCards.size(); i++)
-            {
+            for(int i : selectedCards)
                 sum += this.cardAt(i).pointValue();
-            }
-            if(sum == 11)
-            {
-                return true;
-            }
+            return (sum == 11);
         }
         else {
             for (int i = 0; i < selectedCards.size(); i++)
