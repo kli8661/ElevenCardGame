@@ -91,11 +91,11 @@ public class ElevensBoard extends Board {
                         return true;
                     }
                 }
-
             }
         }
         return false;
     }
+
     private boolean containsPairSum11Whole(List<Integer> selectedCards) {
         for(int i=0;i<selectedCards.size()-1;i++)
         {
@@ -107,6 +107,7 @@ public class ElevensBoard extends Board {
         }
         return false;
     }
+
     /**
      * Check for a JQK in the selected cards.
      * @param selectedCards selects a subset of this board.  It is list
