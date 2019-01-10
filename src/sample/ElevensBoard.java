@@ -81,15 +81,16 @@ public class ElevensBoard extends Board {
                 sum += this.cardAt(i).pointValue();
             return (sum == 11);
         }
-        else {
-            for (int i = 0; i < selectedCards.size(); i++)
-            {
-                for(int j = i + 1; j < selectedCards.size(); j++)
-                {
+        else if (selectedCards.size() == 9){
+            for (int i = 0; i < selectedCards.size(); i++) {
+
+                for (int j = i + 1; j < selectedCards.size(); j++) {
                     sum = this.cardAt(i).pointValue() + this.cardAt(j).pointValue();
-                    if(sum == 11)
+                    if (sum == 11) {
                         return true;
+                    }
                 }
+
             }
         }
         return false;
