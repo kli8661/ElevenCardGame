@@ -61,7 +61,7 @@ public class ThirteensBoard extends Board {
      */
     @Override
     public boolean anotherPlayIsPossible() {
-        return (containsPairSum13Whole(cardIndexes()) || containsK(cardIndexes()));
+        return (containsPairSum13Whole(cardIndexes()) || containsKWhole(cardIndexes()));
     }
 
     /**
@@ -117,9 +117,22 @@ public class ThirteensBoard extends Board {
      */
     private boolean containsK(List<Integer> selectedCards) {
         boolean k = false;
-        for(int i : selectedCards)
+        for(int i = 0; i < selectedCards.size(); i++)
         {
-            if(selectedCards.size() == 1 && cardAt(i).rank().contains("king"))
+            if(selectedCards.size() == 1 && cardAt(selectedCards.get(i)).rank().contains("king"))
+            {
+                k = true;
+            }
+        }
+        return k;
+    }
+
+    private boolean containsKWhole(List<Integer> selectedCards)
+    {
+        boolean k = false;
+        for(int i = 0; i < selectedCards.size(); i++)
+        {
+            if(cardAt(selectedCards.get(i)).rank().contains("king"))
             {
                 k = true;
             }
