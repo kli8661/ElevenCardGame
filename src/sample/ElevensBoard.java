@@ -17,7 +17,7 @@ public class ElevensBoard extends Board {
         if (var1.size() == 2) {
             return this.containsPairSum11(var1);
         } else {
-            return var1.size() == 3 ? this.containsJQK(var1) : false;
+            return var1.size() == 3 && this.containsJQK(var1);
         }
     }
 
@@ -28,10 +28,10 @@ public class ElevensBoard extends Board {
 
     private boolean containsPairSum11(List<Integer> var1) {
         for(int var2 = 0; var2 < var1.size(); ++var2) {
-            int var3 = (Integer)var1.get(var2);
+            int var3 = var1.get(var2);
 
             for(int var4 = var2 + 1; var4 < var1.size(); ++var4) {
-                int var5 = (Integer)var1.get(var4);
+                int var5 = var1.get(var4);
                 if (this.cardAt(var3).pointValue() + this.cardAt(var5).pointValue() == 11) {
                     return true;
                 }
@@ -48,8 +48,7 @@ public class ElevensBoard extends Board {
         Iterator var5 = var1.iterator();
 
         while(var5.hasNext()) {
-            Integer var6 = (Integer)var5.next();
-            int var7 = var6;
+            int var7 = (Integer)var5.next();
             if (this.cardAt(var7).rank().equals("jack")) {
                 var2 = true;
             } else if (this.cardAt(var7).rank().equals("queen")) {
