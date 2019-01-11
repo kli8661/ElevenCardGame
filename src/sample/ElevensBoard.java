@@ -62,7 +62,7 @@ public class ElevensBoard extends Board {
      */
     @Override
     public boolean anotherPlayIsPossible() {
-        return (containsPairSum11Whole(cardIndexes()) || containsJQK(cardIndexes()));
+        return (containsPairSum11Whole(cardIndexes()) || containsJQKWhole(cardIndexes()));
     }
 
     /**
@@ -131,6 +131,28 @@ public class ElevensBoard extends Board {
                 q = true;
             }
             else if(this.cardAt(i).rank().contains("king"))
+            {
+                k = true;
+            }
+        }
+        return (j && q && k);
+    }
+
+    private boolean containsJQKWhole(List<Integer> selectedCards) {
+        boolean j = false;
+        boolean q = false;
+        boolean k = false;
+        for(int i = 0;i<selectedCards.size();i++)
+        {
+            if(cardAt(selectedCards.get(i)).rank().contains("jack"))
+            {
+                j = true;
+            }
+            if(cardAt(selectedCards.get(i)).rank().contains("queen"))
+            {
+                q = true;
+            }
+            if(cardAt(selectedCards.get(i)).rank().contains("king"))
             {
                 k = true;
             }
